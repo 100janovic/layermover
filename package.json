@@ -1,6 +1,6 @@
 {
   "name": "100janovic-mousemover",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Small library for mouse move animation. It can be used for creating parallax effects.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
