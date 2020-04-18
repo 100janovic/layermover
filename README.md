@@ -7,6 +7,11 @@ Small library for mouse move animation. It can be used for creating parallax eff
 npm install --save 100janovic-mousemover
 ```
 
+## Import
+```
+import { MouseMover } from '100janovic-mousemover';
+```
+
 ## Usage
 
 ```
@@ -23,6 +28,14 @@ this.mouseMover = new MouseMover([ // array of elements
     debug: false, // print console log message for debuging
     debounce: 10 // debounce time fore mouse move event
 });
+```
+
+## Destroy
+
+Important to destroy after you don't need it anymore, otherwise mouse move events will still be active.
+
+```
+this.mouseMover.destroy();
 ```
 
 <br /><br />
