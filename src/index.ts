@@ -24,7 +24,7 @@ declare const document: any;
 export class MouseMover {
   // events object
   moverEvents: MouseMoverEvents = {
-    mouseMove: () => {}
+    mouseMove: () => {},
   };
 
   elements: MouseMoverElements[] = [];
@@ -127,10 +127,10 @@ export class MouseMover {
           x: this.round(((r.x[1] - r.x[0]) / bounds.height) * relativeMousePosition.y + r.x[0]),
           y: this.round(((r.y[1] - r.y[0]) / bounds.width) * relativeMousePosition.x + r.y[0]),
         },
-        scale: item.scale || { x: 1, y: 1 }
+        scale: item.scale || { x: 1, y: 1 },
       };
 
-      if(this.options.debug){
+      if (this.options.debug) {
         console.table(transforms);
       }
 
