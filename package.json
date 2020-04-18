@@ -1,0 +1,36 @@
+{
+  "name": "mousemover",
+  "version": "1.0.0",
+  "description": "Small library for mouse move animation. It can be used for creating parallax effects.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/100janovic/mousemover.git"
+  },
+  "keywords": [
+    "mousemover",
+    "parallax",
+    "animation",
+    "mouse",
+    "move"
+  ],
+  "author": "Djordje Stojanovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/100janovic/mousemover/issues"
+  },
+  "homepage": "https://github.com/100janovic/mousemover#readme",
+  "files": ["lib/**/*"],
+  "devDependencies": {
+    "prettier": "^2.0.4",
+    "tslint": "^6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  }
+}
