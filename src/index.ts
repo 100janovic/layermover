@@ -131,6 +131,10 @@ export class MouseMover {
         scale: scale,
       };
 
+      if(this.options.debug){
+        console.table(transforms);
+      }
+
       this.animateElement(item.element, transforms);
     });
   }

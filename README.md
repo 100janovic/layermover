@@ -11,11 +11,11 @@ let background = {
     translation: {x: -20, y: -15}, scale:{x: 1.05, y: 1.05}
 };
 // init
-this.mouseMover = new MouseMover([
+this.mouseMover = new MouseMover([ // array of elements
     background
 ], {
-    moveSpeed: 0.8,
-    debug: false,
-    debounce: 10
+    moveSpeed: 0.8, // animation speed in seconds
+    debug: false, // print console log message for debuging
+    debounce: 10 // debounce time fore mouse move event
 });
 ```
