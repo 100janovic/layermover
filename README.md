@@ -24,3 +24,7 @@ this.mouseMover = new MouseMover([ // array of elements
     debounce: 10 // debounce time fore mouse move event
 });
 ```
+
+Djordje Stojanovic <br />
+djordje100janovic@gmail.com <br /> <br />
+Based on article from [tympanus.net/codrops](https://tympanus.net/codrops/)
