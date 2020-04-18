@@ -26,7 +26,4 @@ this.mouseMover = new MouseMover([ // array of elements
 ```
 
 <br /><br />
-
-Djordje Stojanovic <br />
-[djordje100janovic@gmail.com](mailto:djordje100janovic@gmail.com) <br /> <br />
 Based on article from [tympanus.net/codrops](https://tympanus.net/codrops/)
