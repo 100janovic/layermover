@@ -24,7 +24,7 @@ declare const document: any;
 export class MouseMover {
   // events object
   moverEvents: MouseMoverEvents = {
-    mouseMove: () => {},
+    mouseMove: () => {}
   };
 
   elements: MouseMoverElements[] = [];
@@ -58,7 +58,7 @@ export class MouseMover {
     }, this.options.debounce || 10);
     window.addEventListener('mousemove', this.moverEvents.mouseMove);
     if (this.options.debug) {
-      console.info('MouseMover initiated!');
+      console.log('MouseMover initiated!');
     }
   }
 
@@ -66,7 +66,7 @@ export class MouseMover {
     this.removeEvents();
     this.reset();
     if (this.options.debug) {
-      console.info('MouseMover removed events!');
+      console.log('MouseMover removed events!');
     }
   }
 
@@ -95,16 +95,16 @@ export class MouseMover {
   }
 
   onMouseMove(e: MouseEvent) {
-    let mousepos = getMousePos(e);
+    const mousepos = getMousePos(e);
 
-    let bounds = getBounds(this.options.parentElement || document.body);
+    const bounds = getBounds(this.options.parentElement || document.body);
 
-    let docScrolls = {
+    const docScrolls = {
       left: document.body.scrollLeft + document.documentElement.scrollLeft,
       top: document.body.scrollTop + document.documentElement.scrollTop,
     };
 
-    let relativeMousePosition = {
+    const relativeMousePosition = {
       x: mousepos.x - bounds.left - docScrolls.left,
       y: mousepos.y - bounds.top - docScrolls.top,
     };
@@ -113,13 +113,12 @@ export class MouseMover {
       // get users configuration for each element
       let t: any = item.translation || this.defaultPosition;
       let r: any = item.rotation || this.defaultPosition;
-      let scale: any = item.scale || { x: 1, y: 1 };
 
       // convert each prop into min-max range
       t = setRange(t);
       r = setRange(r);
 
-      let transforms: MouseMoverTransformation = {
+      const transforms: MouseMoverTransformation = {
         translation: {
           x: this.round(((t.x[1] - t.x[0]) / bounds.width) * relativeMousePosition.x + t.x[0]),
           y: this.round(((t.y[1] - t.y[0]) / bounds.height) * relativeMousePosition.y + t.y[0]),
@@ -128,7 +127,7 @@ export class MouseMover {
           x: this.round(((r.x[1] - r.x[0]) / bounds.height) * relativeMousePosition.y + r.x[0]),
           y: this.round(((r.y[1] - r.y[0]) / bounds.width) * relativeMousePosition.x + r.y[0]),
         },
-        scale: scale,
+        scale: item.scale || { x: 1, y: 1 }
       };
 
       if(this.options.debug){
@@ -156,7 +155,7 @@ export class MouseMover {
     if (!transforms.scale) {
       transforms.scale = this.defaultPosition;
     }
-    return `translate(${transforms.translation.x}px, ${transforms.translation.y}px) rotateX(${transforms.rotation.x}deg) rotateY(${transforms.rotation.y}deg) scale(${transforms.scale.x},${transforms.scale.y})`;
+    return `translate(${transforms.translation.x}px, ${transforms.translation.y}px) rotateX(${transforms.rotation.x}deg) rotateY(${transforms.rotation.y}deg) scale(${transforms.scale.x}, ${transforms.scale.y})`;
   }
 
   getResetTransformProperty() {

@@ -26,5 +26,5 @@ export interface MouseMoverElements extends MouseMoverTransformation {
 }
 
 export interface MouseMoverEvents {
-  mouseMove: Function;
+  mouseMove: () => void;
 }

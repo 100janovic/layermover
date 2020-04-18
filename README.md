@@ -4,7 +4,7 @@ Small library for mouse move animation. It can be used for creating parallax eff
 
 ## Installation
 ```
-npm install --save mousemover
+npm install --save 100janovic-mousemover
 ```
 
 ## Usage

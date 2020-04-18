@@ -4,19 +4,19 @@
 // be triggered. The function will be called after it stops being called for
 // N milliseconds. If `immediate` is passed, trigger the function on the
 // leading edge, instead of the trailing.
-export function debounce(func: Function, wait: number, immediate?: boolean) {
+export function debounce(func: any, wait: number, immediate?: boolean) {
   let timeout: any;
 
   return function executedFunction() {
-    let context: any = self;
-    let args = arguments;
+    const context: any = self;
+    const args = arguments;
 
-    let later = function () {
+    const later = () => {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
 
-    let callNow = immediate && !timeout;
+    const callNow = immediate && !timeout;
     clearTimeout(timeout);
 
     timeout = setTimeout(later, wait);
@@ -41,7 +41,7 @@ export function getMousePos(e: any) {
 
 // uses object positions and converts them in to min and max range
 export function setRange(obj: any) {
-  for (let k in obj) {
+  for (const k in obj) {
     if (obj[k] === undefined) {
       obj[k] = [0, 0];
     } else if (typeof obj[k] === 'number') {
@@ -52,7 +52,7 @@ export function setRange(obj: any) {
 }
 
 export function getBounds(parentElement: HTMLElement) {
-  let bounds = parentElement ? parentElement.getBoundingClientRect() : document.body.getBoundingClientRect();
+  const bounds = parentElement ? parentElement.getBoundingClientRect() : document.body.getBoundingClientRect();
   if (!bounds.width) {
     bounds.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   }
