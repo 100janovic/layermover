@@ -162,3 +162,5 @@ export class LayerMover {
     return `translate(0px, 0px) rotateX(0deg) rotateY(0deg) scale(1,1)`;
   }
 }
+
+window.LayerMover = LayerMover;

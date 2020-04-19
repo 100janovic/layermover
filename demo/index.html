@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <h1>LayerMover</h1>
         <p>Super simple library for mouse move animation.<br/>It can be used for creating parallax effects.</p>
         <div class="social">
@@ -51,11 +51,28 @@
         </div>
         <a href="https://100janovic.github.io/" title="100janovic.github.io" target="_blank" class="btn-author">100janovic.github.io</a>
     </header>
-    <div class="bg"></div>
+    <div class="bg" id="bg"></div>
     <footer>
-        <a href="https://www.pexels.com/photo/brown-house-on-cliff-3070671/">Background image: www.pexels.com</a>
+        <a href="https://unsplash.com/photos/cwIjBesO6P4" target="_blank">Photo - unsplash.com</a>
     </footer>
-    <script src="../lib/index.js"></script>
+    <script src="../lib/bundle.js"></script>
+    <script>
+ 
+        var header = document.getElementById('header');
+        var bg = document.getElementById('bg');
+        
+        var elements = [
+            {element: header, translation: {x: -40, y: -30}},
+            {element: bg, translation: {x: -10, y: -10}, scale:{x: 1.05, y: 1.05}}
+        ];
+
+        this.layerMover = new LayerMover(elements, {
+            moveSpeed: 0.8,
+            debug: false,
+            debounce: 10
+        });
+
+    </script>
 </body>
 
 </html>
