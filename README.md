@@ -58,6 +58,8 @@ translation: {x: -20, y: -15}, scale:{x: 1.05, y: 1.05}
 
 When a translation is animated, it can affect document width and height. 
 To avoid scrollbars - set on some parent element overflow: hidden.
+<br/>
+To achieve a better parallax effect, set translation values of the foreground elements higher than for the background elements.
 
 
 <br /><br />
