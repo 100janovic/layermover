@@ -2,7 +2,7 @@
 
 Small library for mouse move animation. It can be used for creating parallax effects.
 
-[Demo](https://100janovic.github.io/projects/layermover){:target="_blank"}
+[Demo](https://100janovic.github.io/projects/layermover)
 
 ## Installation
 ```
