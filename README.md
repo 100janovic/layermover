@@ -1,15 +1,15 @@
-# MouseMover
+# LayerMover
 
 Small library for mouse move animation. It can be used for creating parallax effects.
 
 ## Installation
 ```
-npm install --save 100janovic-mousemover
+npm install --save layer-mover
 ```
 
 ## Import
 ```
-import { MouseMover } from '100janovic-mousemover';
+import { LayerMover } from 'layer-mover';
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ let background = {
     translation: {x: -20, y: -15}, scale:{x: 1.05, y: 1.05}
 };
 // init
-this.mouseMover = new MouseMover([ // array of elements
+this.layerMover = new LayerMover([ // array of elements
     background
 ], {
     moveSpeed: 0.8, // animation speed in seconds
@@ -35,7 +35,7 @@ this.mouseMover = new MouseMover([ // array of elements
 Important to destroy after you don't need it anymore, otherwise mouse move events will still be active.
 
 ```
-this.mouseMover.destroy();
+this.layerMover.destroy();
 ```
 
 <br /><br />

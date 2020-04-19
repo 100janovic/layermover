@@ -1,17 +1,17 @@
 import { debounce, getMousePos, setRange, getBounds } from './helpers';
 import {
-  MouseMoverOptions,
-  MouseMoverElements,
-  MouseMoverPosition,
-  MouseMoverTransformation,
-  MouseMoverEvents,
+  LayerMoverOptions,
+  LayerMoverElements,
+  LayerMoverPosition,
+  LayerMoverTransformation,
+  LayerMoverEvents,
 } from './models';
 
 declare const window: any;
 declare const document: any;
 
 /*
- * MouseMover - Small library for mouse move animation. It can be used for creating parallax effects.
+ * LayerMover - Small library for mouse move animation. It can be used for creating parallax effects.
  * Djordje Stojanovic
  * djordje100janovic@gmail.com
  *
@@ -21,23 +21,23 @@ declare const document: any;
  * v1.0
  */
 
-export class MouseMover {
+export class LayerMover {
   // events object
-  moverEvents: MouseMoverEvents = {
+  moverEvents: LayerMoverEvents = {
     mouseMove: () => {},
   };
 
-  elements: MouseMoverElements[] = [];
-  defaultPosition: MouseMoverPosition = { x: 0, y: 0 };
+  elements: LayerMoverElements[] = [];
+  defaultPosition: LayerMoverPosition = { x: 0, y: 0 };
 
-  options: MouseMoverOptions = {
+  options: LayerMoverOptions = {
     moveSpeed: 1,
     parentElement: document.body,
     debug: false,
     debounce: 10,
   };
 
-  constructor(elements: MouseMoverElements[], options: MouseMoverOptions) {
+  constructor(elements: LayerMoverElements[], options: LayerMoverOptions) {
     // save elements
     this.elements = elements;
     // overwrite options with user defined
@@ -58,7 +58,7 @@ export class MouseMover {
     }, this.options.debounce || 10);
     window.addEventListener('mousemove', this.moverEvents.mouseMove);
     if (this.options.debug) {
-      console.log('MouseMover initiated!');
+      console.log('LayerMover initiated!');
     }
   }
 
@@ -66,7 +66,7 @@ export class MouseMover {
     this.removeEvents();
     this.reset();
     if (this.options.debug) {
-      console.log('MouseMover removed events!');
+      console.log('LayerMover removed events!');
     }
   }
 
@@ -118,7 +118,7 @@ export class MouseMover {
       t = setRange(t);
       r = setRange(r);
 
-      const transforms: MouseMoverTransformation = {
+      const transforms: LayerMoverTransformation = {
         translation: {
           x: this.round(((t.x[1] - t.x[0]) / bounds.width) * relativeMousePosition.x + t.x[0]),
           y: this.round(((t.y[1] - t.y[0]) / bounds.height) * relativeMousePosition.y + t.y[0]),
@@ -142,13 +142,13 @@ export class MouseMover {
     return Math.round(num * 100) / 100;
   }
 
-  animateElement(element: HTMLElement, transforms: MouseMoverTransformation) {
+  animateElement(element: HTMLElement, transforms: LayerMoverTransformation) {
     const transformString = this.getTransformProperty(transforms);
     element.style.webkitTransform = transformString;
     element.style.transform = transformString;
   }
 
-  getTransformProperty(transforms: MouseMoverTransformation) {
+  getTransformProperty(transforms: LayerMoverTransformation) {
     if (!transforms.rotation) {
       transforms.rotation = this.defaultPosition;
     }

@@ -1,30 +1,30 @@
-export interface MouseMoverOptions {
+export interface LayerMoverOptions {
   moveSpeed?: number;
   parentElement?: HTMLElement;
   debug?: boolean;
   debounce?: number;
 }
 
-export interface MouseMoverPosition {
+export interface LayerMoverPosition {
   x: number;
   y: number;
 }
 
-export interface MouseMoveScale {
+export interface LayerMoveScale {
   x: number;
   y: number;
 }
 
-export interface MouseMoverTransformation {
-  translation: MouseMoverPosition;
-  rotation?: MouseMoverPosition;
-  scale?: MouseMoveScale;
+export interface LayerMoverTransformation {
+  translation: LayerMoverPosition;
+  rotation?: LayerMoverPosition;
+  scale?: LayerMoveScale;
 }
 
-export interface MouseMoverElements extends MouseMoverTransformation {
+export interface LayerMoverElements extends LayerMoverTransformation {
   element: HTMLElement;
 }
 
-export interface MouseMoverEvents {
+export interface LayerMoverEvents {
   mouseMove: () => void;
 }
