@@ -25,10 +25,14 @@ let background = {
     element: document.getElementById("background"), 
     translation: {x: -20, y: -15}, scale:{x: 1.05, y: 1.05}
 };
-// init
-this.layerMover = new LayerMover([ // array of elements
+
+// array of elements
+let elements = [ 
     background
-], {
+]
+
+// init
+this.layerMover = new LayerMover(elements, {
     moveSpeed: 0.8, // animation speed in seconds
     debug: false, // print console log message for debuging
     debounce: 10 // debounce time fore mouse move event
@@ -42,6 +46,19 @@ Important to destroy after you don't need it anymore, otherwise mouse move event
 ```
 this.layerMover.destroy();
 ```
+
+### Some notes
+
+If you want to animate a background - set element style to cover full width and height, 
+then scale-up element to avoid edges showing up when the element is animated.
+
+```
+translation: {x: -20, y: -15}, scale:{x: 1.05, y: 1.05}
+```
+
+When a translation is animated, it can affect document width and height. 
+To avoid scrollbars - set on some parent element overflow: hidden.
+
 
 <br /><br />
 Based on article from [tympanus.net/codrops](https://tympanus.net/codrops/)

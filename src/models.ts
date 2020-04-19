@@ -10,7 +10,7 @@ export interface LayerMoverPosition {
   y: number;
 }
 
-export interface LayerMoveScale {
+export interface LayerMoverScale {
   x: number;
   y: number;
 }
@@ -18,7 +18,7 @@ export interface LayerMoveScale {
 export interface LayerMoverTransformation {
   translation: LayerMoverPosition;
   rotation?: LayerMoverPosition;
-  scale?: LayerMoveScale;
+  scale?: LayerMoverScale;
 }
 
 export interface LayerMoverElements extends LayerMoverTransformation {
