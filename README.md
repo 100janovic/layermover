@@ -20,22 +20,21 @@ import { LayerMover } from 'layer-mover';
 ## Usage
 
 ```
-// set element
-let background = {
-    element: document.getElementById("background"), 
-    translation: {x: -20, y: -15}, scale:{x: 1.05, y: 1.05}
-};
+// get elements
+let text = document.getElementById('text');
+let bg = document.getElementById('bg');
 
-// array of elements
-let elements = [ 
-    background
-]
+// set
+let elements = [
+    {element: text, translation: {x: -40, y: -30}},
+    {element: bg, translation: {x: -10, y: -10}, scale:{x: 1.05, y: 1.05}}
+];
 
 // init
 this.layerMover = new LayerMover(elements, {
-    moveSpeed: 0.8, // animation speed in seconds
-    debug: false, // print console log message for debuging
-    debounce: 10 // debounce time fore mouse move event
+    moveSpeed: 0.8,
+    debug: false,
+    debounce: 10
 });
 ```
 
