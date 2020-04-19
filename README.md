@@ -48,17 +48,16 @@ this.layerMover.destroy();
 
 ### Some notes
 
-If you want to animate a background - set element style to cover full width and height, 
+- If you want to animate a background - set element style to cover full width and height, 
 then scale-up element to avoid edges showing up when the element is animated.
 
 ```
 translation: {x: -20, y: -15}, scale:{x: 1.05, y: 1.05}
 ```
 
-When a translation is animated, it can affect document width and height. 
-To avoid scrollbars - set on some parent element overflow: hidden.
-<br/>
-To achieve a better parallax effect, set translation values of the foreground elements higher than for the background elements.
+- When a translation is animated, it can affect document width and height. To avoid scrollbars - set on some parent element overflow: hidden.
+- To achieve a better parallax effect, set translation values of the foreground elements higher than for the background elements.
+- If translation values are negative - then the element will move in opposite direction of the mouse.
 
 
 <br /><br />
