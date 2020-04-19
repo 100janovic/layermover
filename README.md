@@ -2,6 +2,9 @@
 
 Small library for mouse move animation. It can be used for creating parallax effects.
 
+## Demo
+[Demo](https://100janovic.github.io/projects/layermover)
+
 ## Installation
 ```
 npm install --save layer-mover

@@ -17,9 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/100janovic/mousemover.git"
+    "url": "git+https://github.com/100janovic/layermover.git"
   },
   "keywords": [
+    "layermover",
     "mousemover",
     "parallax",
     "animation",
@@ -29,9 +30,9 @@
   "author": "Djordje Stojanovic",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/100janovic/mousemover/issues"
+    "url": "https://github.com/100janovic/layermover/issues"
   },
-  "homepage": "https://github.com/100janovic/mousemover#readme",
+  "homepage": "https://github.com/100janovic/layermover#readme",
   "files": [
     "lib/**/*"
   ],
