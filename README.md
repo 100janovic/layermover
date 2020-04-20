@@ -2,7 +2,6 @@
 
 Small library for mouse move animation. It can be used for creating parallax effects.
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/100janovic/layermover)
 ![npm](https://img.shields.io/npm/v/layer-mover)
 
 [Demo](https://100janovic.github.io/projects/layermover)
