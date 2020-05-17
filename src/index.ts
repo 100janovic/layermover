@@ -88,7 +88,7 @@ export class LayerMover {
     this.elements.map((item) => {
       this.animateElement(item.element, {
         scale: item.scale || { x: 1, y: 1 },
-        translation: item.translation || { x: 0, y: 0 }
+        translation: item.translation || { x: 0, y: 0 },
       });
       this.setTransition(item.element);
     });
@@ -127,7 +127,7 @@ export class LayerMover {
           x: this.round(((t.x[1] - t.x[0]) / bounds.width) * relativeMousePosition.x + t.x[0]),
           y: this.round(((t.y[1] - t.y[0]) / bounds.height) * relativeMousePosition.y + t.y[0]),
         },
-        scale: item.scale || { x: 1, y: 1 }
+        scale: item.scale || { x: 1, y: 1 },
       };
 
       if (this.options.debug) {
@@ -157,7 +157,6 @@ export class LayerMover {
   getResetTransformProperty() {
     return `translate(0px, 0px) rotateX(0deg) rotateY(0deg) scale(1,1)`;
   }
-
 }
 
 window.LayerMover = LayerMover;
