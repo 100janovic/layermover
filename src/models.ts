@@ -17,7 +17,6 @@ export interface LayerMoverScale {
 
 export interface LayerMoverTransformation {
   translation: LayerMoverPosition;
-  rotation?: LayerMoverPosition;
   scale?: LayerMoverScale;
 }
 

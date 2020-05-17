@@ -85,13 +85,19 @@ export class LayerMover {
   }
 
   initTransition() {
-    this.elements.map((item) => this.setTransition(item.element));
+    this.elements.map((item) => {
+      this.animateElement(item.element, {
+        scale: item.scale || { x: 1, y: 1 },
+        translation: item.translation || { x: 0, y: 0 }
+      });
+      this.setTransition(item.element);
+    });
   }
 
   setTransition(element: HTMLElement) {
     element.style.transitionDuration = `${this.options.moveSpeed}s`;
     element.style.transitionProperty = 'transform';
-    element.style.transitionTimingFunction = 'ease-out';
+    element.style.transitionTimingFunction = 'cubic-bezier(0.08, 0.82, 0.17, 1)';
   }
 
   onMouseMove(e: MouseEvent) {
@@ -112,22 +118,16 @@ export class LayerMover {
     this.elements.map((item) => {
       // get users configuration for each element
       let t: any = item.translation || this.defaultPosition;
-      let r: any = item.rotation || this.defaultPosition;
 
       // convert each prop into min-max range
       t = setRange(t);
-      r = setRange(r);
 
       const transforms: LayerMoverTransformation = {
         translation: {
           x: this.round(((t.x[1] - t.x[0]) / bounds.width) * relativeMousePosition.x + t.x[0]),
           y: this.round(((t.y[1] - t.y[0]) / bounds.height) * relativeMousePosition.y + t.y[0]),
         },
-        rotation: {
-          x: this.round(((r.x[1] - r.x[0]) / bounds.height) * relativeMousePosition.y + r.x[0]),
-          y: this.round(((r.y[1] - r.y[0]) / bounds.width) * relativeMousePosition.x + r.y[0]),
-        },
-        scale: item.scale || { x: 1, y: 1 },
+        scale: item.scale || { x: 1, y: 1 }
       };
 
       if (this.options.debug) {
@@ -144,23 +144,20 @@ export class LayerMover {
 
   animateElement(element: HTMLElement, transforms: LayerMoverTransformation) {
     const transformString = this.getTransformProperty(transforms);
-    element.style.webkitTransform = transformString;
     element.style.transform = transformString;
   }
 
   getTransformProperty(transforms: LayerMoverTransformation) {
-    if (!transforms.rotation) {
-      transforms.rotation = this.defaultPosition;
-    }
     if (!transforms.scale) {
       transforms.scale = this.defaultPosition;
     }
-    return `translate(${transforms.translation.x}px, ${transforms.translation.y}px) rotateX(${transforms.rotation.x}deg) rotateY(${transforms.rotation.y}deg) scale(${transforms.scale.x}, ${transforms.scale.y})`;
+    return `translate3d(${transforms.translation.x}px, ${transforms.translation.y}px, 0px) rotate(0.1deg) scale(${transforms.scale.x}, ${transforms.scale.y}`;
   }
 
   getResetTransformProperty() {
     return `translate(0px, 0px) rotateX(0deg) rotateY(0deg) scale(1,1)`;
   }
+
 }
 
 window.LayerMover = LayerMover;
